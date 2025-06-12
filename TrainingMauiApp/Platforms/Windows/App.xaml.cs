@@ -1,25 +1,47 @@
-﻿using Microsoft.UI.Xaml;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+﻿using System;
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
+using Microsoft.UI.Xaml;
+using Windows.ApplicationModel.Activation;
+using DotNetMauiApp.Services;
+using System.Diagnostics;
 
 namespace TrainingMauiApp.WinUI
 {
-    /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
-    /// </summary>
     public partial class App : MauiWinUIApplication
     {
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
         public App()
         {
             this.InitializeComponent();
         }
 
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
-    }
+        // This hooks your MAUI App builder.
+        protected override MauiApp CreateMauiApp()
+            => MauiProgram.CreateMauiApp();
 
+        // WinUI calls this for all launches, including protocol activations.
+        protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+        {
+            base.OnLaunched(args);
+
+            // args.Arguments contains the full URI when launched via protocol.
+            var raw = args.Arguments;
+            if (!string.IsNullOrEmpty(raw) && raw.StartsWith("myapp://", StringComparison.OrdinalIgnoreCase))
+            {
+                try
+                {
+                    var uri = new Uri(raw);
+                    var authSvc = this.Services.GetService<AuthService>();
+                    if (authSvc != null)
+                    {
+                        _ = authSvc.HandleCallbackAsync(uri);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error handling protocol URI: {ex}");
+                }
+            }
+        }
+    }
 }

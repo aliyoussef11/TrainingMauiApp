@@ -9,6 +9,18 @@
 				<data android:scheme="myapp" android:host="callback" />
 			</intent-filter>
 		</activity>
+		<activity
+			android:name="microsoft.maui.authentication.WebAuthenticatorCallbackActivity"
+			android:exported="true">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data
+					android:host="callback"
+					android:scheme="myapp" />
+			</intent-filter>
+		</activity>
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />

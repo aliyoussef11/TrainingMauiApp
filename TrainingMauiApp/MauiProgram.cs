@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DotNetMauiApp.Services;
+using Microsoft.Extensions.Logging;
+using Microsoft.Maui.LifecycleEvents;
 
 namespace TrainingMauiApp
 {
@@ -15,8 +17,10 @@ namespace TrainingMauiApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Services.AddSingleton<AuthService>();
+
+            #if DEBUG
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

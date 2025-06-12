@@ -1,4 +1,6 @@
-﻿namespace TrainingMauiApp
+﻿using DotNetMauiApp.Services;
+
+namespace TrainingMauiApp
 {
     public partial class App : Application
     {
@@ -7,6 +9,6 @@
             InitializeComponent();
 
             MainPage = new AppShell();
-        }
+        }      
     }
 }

@@ -16,6 +16,7 @@
 		<OutputType>Exe</OutputType>
 		<RootNamespace>TrainingMauiApp</RootNamespace>
 		<UseMaui>true</UseMaui>
+		<UseWinUI>true</UseWinUI>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
