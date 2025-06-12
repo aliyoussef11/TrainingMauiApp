@@ -13,6 +13,9 @@ namespace TrainingMauiApp
         {
             var authService = new AuthService();
             await authService.AuthenticateAsync();
+
+            var accessToken = await SecureStorage.GetAsync("access_token");
+            var idToken = await SecureStorage.GetAsync("id_token");
         }
     }
 
