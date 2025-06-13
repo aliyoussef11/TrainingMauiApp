@@ -3,9 +3,8 @@ using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text;
 using System.Web;
-using System.Runtime.InteropServices;
 
-namespace DotNetMauiApp.Services
+namespace TrainingMauiApp.Services
 {
     public class AuthService
     {

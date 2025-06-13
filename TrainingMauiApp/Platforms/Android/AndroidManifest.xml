@@ -7,6 +7,7 @@
 				<category android:name="android.intent.category.DEFAULT" />
 				<category android:name="android.intent.category.BROWSABLE" />
 				<data android:scheme="myapp" android:host="callback" />
+				<data android:scheme="msal1950a258-227b-4e31-a9cf-717495945fc2" android:host="auth" />
 			</intent-filter>
 		</activity>
 		<activity

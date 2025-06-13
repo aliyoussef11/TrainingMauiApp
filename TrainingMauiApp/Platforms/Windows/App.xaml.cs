@@ -3,7 +3,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.UI.Xaml;
 using Windows.ApplicationModel.Activation;
-using DotNetMauiApp.Services;
+using TrainingMauiApp.Services;
 using System.Diagnostics;
 
 namespace TrainingMauiApp.WinUI
