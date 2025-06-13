@@ -1,4 +1,4 @@
-﻿using DotNetMauiApp.Services;
+﻿using TrainingMauiApp.Services;
 
 namespace TrainingMauiApp
 {
@@ -16,6 +16,19 @@ namespace TrainingMauiApp
 
             var accessToken = await SecureStorage.GetAsync("access_token");
             var idToken = await SecureStorage.GetAsync("id_token");
+        }
+
+        private async void OnMicrosoftLoginClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var result = await MicrosoftAuthService.SignInAsync();
+                await DisplayAlert("Welcome", $"Logged in as: {result.Account.Username}", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Login Failed", ex.Message, "OK");
+            }
         }
     }
 

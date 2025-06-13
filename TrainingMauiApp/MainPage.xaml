@@ -9,6 +9,7 @@
        FontSize="32"
        HorizontalOptions="Center" />
             <Button Text="Login" Clicked="OnLoginClicked" />
+            <Button Text="Login For Microsoft" Clicked="OnMicrosoftLoginClicked" />
         </VerticalStackLayout>
     </ScrollView>
 

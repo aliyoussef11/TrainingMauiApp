@@ -1,4 +1,4 @@
-﻿using DotNetMauiApp.Services;
+﻿using TrainingMauiApp.Services;
 
 namespace TrainingMauiApp
 {

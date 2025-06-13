@@ -1,4 +1,4 @@
-﻿using DotNetMauiApp.Services;
+﻿using TrainingMauiApp.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
 
@@ -18,10 +18,14 @@ namespace TrainingMauiApp
                 });
 
             builder.Services.AddSingleton<AuthService>();
+            MicrosoftAuthService.Init(
+                clientId: "1950a258-227b-4e31-a9cf-717495945fc2",
+                tenantId: "common"
+            );
 
             #if DEBUG
             builder.Logging.AddDebug();
-#endif
+            #endif
 
             return builder.Build();
         }
